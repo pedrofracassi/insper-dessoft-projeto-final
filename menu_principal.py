@@ -1,6 +1,5 @@
 from stage import Stage
 
-
 class Menu(Stage):
   def __init__(self, window) -> None:
       super(Menu, self).__init__('menu', window)
