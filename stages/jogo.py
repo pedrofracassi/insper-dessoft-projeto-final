@@ -50,9 +50,6 @@ while game:
   font = pygame.font.SysFont(None, 20)
   texto2 = font.render('Vidas: {}'.format(lives), True, (0, 255, 0))
   #Atualizando as vidas
-  '''colisão = 
-  if len(colisão)>0:
-    lives-=1'''
   if lives == 0:
     game = False
 
