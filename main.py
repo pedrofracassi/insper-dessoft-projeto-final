@@ -11,7 +11,7 @@ game = True
 
 state = GameState()
 
-stage_atual = 'menu'
+stage_atual = 'jogo'
 stages = [
   menu.Stage(window, state),
   jogo.Stage(window, state)
