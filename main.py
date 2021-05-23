@@ -9,7 +9,9 @@ pygame.display.set_caption('Café com a Alessandra')
 game = True
 
 stage_atual = 'menu'
-stages = [Menu(window)]
+stages = [
+  Menu(window),
+]
 
 def get_stage(name):
   for stage in stages:
