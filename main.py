@@ -1,4 +1,5 @@
-from menu_principal import Menu
+from game_state import GameState
+from stages import menu, jogo
 import pygame
 
 pygame.init()
@@ -8,9 +9,12 @@ pygame.display.set_caption('Café com a Alessandra')
 
 game = True
 
+state = GameState()
+
 stage_atual = 'menu'
 stages = [
-  Menu(window),
+  menu.Stage(window, state),
+  jogo.Stage(window, state)
 ]
 
 def get_stage(name):
