@@ -22,13 +22,6 @@ def get_stage(name):
     if stage.name == name:
       return stage
 
-while game:
-  for event in pygame.event.get():
-    if event.type == pygame.QUIT:
-      game = False
-
-  get_stage(stage_atual).run()
-
-  pygame.display.update()
+get_stage(stage_atual).run()
 
 pygame.quit()
