@@ -1,3 +1,4 @@
+from stages.jogo import HEIGHT, WIDTH
 import pygame
 from stage import BaseStage
 
@@ -8,28 +9,22 @@ class Stage(BaseStage):
       self.x = 0
 
   def run (self):
-    game = True
-    while game:
+    done = False
+    while not done:
       pygame.time.Clock().tick(60)
       for event in pygame.event.get():
         if event.type == pygame.QUIT:
-          game = False
+          done = True
+        if event.type == pygame.KEYDOWN:
+          done = True
+          return 'game'
 
-      keys = pygame.key.get_pressed()
+      font = pygame.font.SysFont(None, 32)
 
-      if keys[pygame.K_UP]:
-        self.y -= 1
-      if keys[pygame.K_DOWN]:
-        self.y += 1
-      if keys[pygame.K_LEFT]:
-        self.x -= 1
-      if keys[pygame.K_RIGHT]:
-        self.x += 1
-
-      self.window.fill((255, 255, 255))
-
-      cor = (255, 0, 0)
-      vertices = [(self.x, self.y), (self.x, self.y + 10), (self.x + 10, self.y), (self.x + 10, self.y + 10)]
-      pygame.draw.polygon(self.window, cor, vertices)
-
+      texto = font.render('APERTE ESPAÇO PARA INICIAR', True, (0, 0, 255))
+      texto2 = font.render('MENU DAORA', True, (255, 255, 255))
+      largura, altura = font.size('APERTE ESPAÇO PARA INICIAR')
+      largura2, altura2 = font.size('MENU DAORA')
+      self.window.blit(texto, (WIDTH / 2 - largura / 2, HEIGHT / 2 - altura/2))
+      self.window.blit(texto2, (WIDTH / 2 - largura2 / 2, HEIGHT / 2 - altura/2 - 20))
       pygame.display.update()

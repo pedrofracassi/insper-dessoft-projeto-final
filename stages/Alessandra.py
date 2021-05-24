@@ -28,12 +28,12 @@ class Alessandra(pygame.sprite.Sprite):
   def update (self):
     self.speedx = 0
     keystate = pygame.key.get_pressed()
-    if keystate[pygame.K_UP] and not self.pulando and not self.uphold:
+    if keystate[pygame.K_SPACE] and not self.pulando and not self.uphold:
       self.uphold = True
       self.pulando = True
       self.speedy = -15
 
-    if not keystate[pygame.K_UP]:
+    if not keystate[pygame.K_SPACE]:
       self.uphold = False
 
     self.rect.y += self.speedy

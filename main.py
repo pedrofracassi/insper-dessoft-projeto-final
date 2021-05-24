@@ -11,7 +11,6 @@ game = True
 
 state = GameState()
 
-stage_atual = 'jogo'
 stages = [
   menu.Stage(window, state),
   jogo.Stage(window, state)
@@ -22,6 +21,8 @@ def get_stage(name):
     if stage.name == name:
       return stage
 
-get_stage(stage_atual).run()
+res = get_stage('menu').run()
+if res == 'game':
+  get_stage('jogo').run()
 
 pygame.quit()
