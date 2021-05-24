@@ -24,7 +24,7 @@ alessandra_y = 350
 #Definindo obstáculo
 c = pygame.image.load('cone.png').convert()
 cone = pygame.transform.scale(c, (30, 40))
-cone_x = 0
+cone_x = 599
 cone_y = 370
 #Definindo score
 i=0
@@ -55,10 +55,10 @@ while game:
     
 
   #Atualizando posição do cone
-  cone_x+=1
+  cone_x-=1
 
-  if cone_x == 599:
-    cone_x = 0
+  if cone_x == 1:
+    cone_x = 599
   #Atualizando posição Alesssandra
   keys = pygame.key.get_pressed()
   if alessandra_y<350:
@@ -66,11 +66,9 @@ while game:
   if keys[pygame.K_UP]:
         alessandra_y -=50
   
-  '''if (alessandra_x - cone_x)<-18 and (alessandra_y-cone_y)<-10:
-    lives-=1
-    cone_x = 0
-    cone_y = 370'''
-    
+  '''hits = pygame.sprite.spritecollide(alessandra, cone, True)
+  if hits:
+    lives-=1'''
   
 
  
