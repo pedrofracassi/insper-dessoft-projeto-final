@@ -1,14 +1,33 @@
+from stages.Alessandra import Alessandra
 import pygame
 from stage import BaseStage
 
+WIDTH = 600
+HEIGHT = 500
+
 class Stage(BaseStage):
   def __init__(self, window, state) -> None:
-      super(Stage, self).__init__('jogo', window, state)
+    super(Stage, self).__init__('jogo', window, state)
+    self.window = window
 
   def run (self):
-    self.window.fill((0, 10, 0))
+    all_sprites = pygame.sprite.Group()
+    player = Alessandra()
+    all_sprites.add(player)
 
+    done = False
+    while not done:
+      pygame.time.Clock().tick(60)
+      for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+          done = True
 
+      all_sprites.update()
+      self.window.fill((0, 0, 0))
+      all_sprites.draw(self.window)
+      pygame.display.flip()
+
+'''
 pygame.init()
 window = pygame.display.set_mode((600,500))
 #Definindo a Alessandra
@@ -24,7 +43,7 @@ alessandra_y = 350
 #Definindo obstáculo
 c = pygame.image.load('cone.png').convert()
 cone = pygame.transform.scale(c, (30, 40))
-cone_x = 599
+cone_x = 0
 cone_y = 370
 #Definindo score
 i=0
@@ -55,10 +74,10 @@ while game:
     
 
   #Atualizando posição do cone
-  cone_x-=1
+  cone_x+=1
 
-  if cone_x == 1:
-    cone_x = 599
+  if cone_x == 599:
+    cone_x = 0
   #Atualizando posição Alesssandra
   keys = pygame.key.get_pressed()
   if alessandra_y<350:
@@ -66,12 +85,10 @@ while game:
   if keys[pygame.K_UP]:
         alessandra_y -=50
   
-  '''hits = pygame.sprite.spritecollide(alessandra, cone, True)
-  if hits:
-    lives-=1'''
-  
-
- 
+  if (alessandra_x - cone_x)<-18 and (alessandra_y-cone_y)<-10:
+    lives-=1
+    cone_x = 0
+    cone_y = 370
 
   window.fill((0,0,0))
   window.blit(alessandra, (alessandra_x, alessandra_y))
@@ -79,11 +96,4 @@ while game:
   window.blit(texto, (500, 10))
   window.blit(texto2, (500, 30))
   pygame.display.update()
-
-  
-
-
-
-
-    
-  
+'''
