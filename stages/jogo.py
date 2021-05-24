@@ -1,4 +1,5 @@
 from stages.Alessandra import Alessandra
+from stages.provas import p
 import pygame
 from stage import BaseStage
 
@@ -13,7 +14,10 @@ class Stage(BaseStage):
   def run (self):
     all_sprites = pygame.sprite.Group()
     player = Alessandra()
+    prova = p()
+    all_sprites.add(prova)
     all_sprites.add(player)
+    
 
     done = False
     while not done:
