@@ -66,10 +66,10 @@ while game:
   if keys[pygame.K_UP]:
         alessandra_y -=50
   
-  if alessandra_x - cone_x <=0 and (alessandra_y-cone_y)<=0:
+  '''if (alessandra_x - cone_x)<-18 and (alessandra_y-cone_y)<-10:
     lives-=1
     cone_x = 0
-    cone_y = 370
+    cone_y = 370'''
     
   
 
