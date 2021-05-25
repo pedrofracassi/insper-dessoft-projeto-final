@@ -1,6 +1,7 @@
 from stages.Alessandra import Alessandra
 from stages.provas import p
 from stages.obs2 import x
+from stages.boost import b 
 import pygame
 from stage import BaseStage
 
@@ -16,14 +17,18 @@ class Stage(BaseStage):
     all_sprites = pygame.sprite.Group()
     all_provas = pygame.sprite.Group()
     all_obs = pygame.sprite.Group()
+    all_boosts = pygame.sprite.Group()
     player = Alessandra()
     prova = p()
     obstaculo = x()
+    boost = b()
     all_sprites.add(prova)
     all_sprites.add(player)
     all_sprites.add(obstaculo)
+    all_sprites.add(boost)
     all_obs.add(obstaculo)
     all_provas.add(prova)
+    all_boosts.add(boost)
     lives = 3
     score = 0
     
@@ -40,9 +45,12 @@ class Stage(BaseStage):
       #Verifica colisões entre obstaculos e Alessandra
       hits = pygame.sprite.spritecollide(player, all_provas, True)
       hits2 = pygame.sprite.spritecollide(player,all_obs, True)
+      hits3 = pygame.sprite.spritecollide(player,all_boosts, True)
       #Atualiza vidas
       if hits or hits2:
         lives-=1
+      if hits3:
+        lives+=1
       if lives == 0:
         done = True
       #Caso haja uma colisão o obstaculo é reposto
@@ -54,6 +62,10 @@ class Stage(BaseStage):
         obstaculo_ = x()
         all_sprites.add(obstaculo_)
         all_provas.add(obstaculo_)
+      for boost in hits2:
+        boost_ = b()
+        all_sprites.add(boost_)
+        all_provas.add(boost_)
 
       #VIDAS
       font = pygame.font.SysFont(None, 20)
