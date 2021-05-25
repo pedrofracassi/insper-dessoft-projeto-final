@@ -15,7 +15,7 @@ YELLOW = (255, 255, 0)
 class p(pygame.sprite.Sprite):
   def __init__(self):
     pygame.sprite.Sprite.__init__(self)
-    self.image = pygame.Surface((30, 15))
+    self.image = pygame.Surface((10, 10))
     self.image.fill(YELLOW)
     self.rect = self.image.get_rect()
     self.rect.centerx = 600
@@ -26,7 +26,7 @@ class p(pygame.sprite.Sprite):
   def update (self):
     self.rect.centerx += self.speedx
     self.rect.bottom+=0
-    if self.rect.centerx<=0:
+    if self.rect.centerx<=-5:
         self.rect.centerx = 600
 
     

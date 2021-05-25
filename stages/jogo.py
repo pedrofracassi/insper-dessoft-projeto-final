@@ -13,10 +13,14 @@ class Stage(BaseStage):
 
   def run (self):
     all_sprites = pygame.sprite.Group()
+    all_provas = pygame.sprite.Group()
     player = Alessandra()
     prova = p()
     all_sprites.add(prova)
+    all_provas.add(prova)
     all_sprites.add(player)
+    lives = 3
+    score = 0
     
 
     done = False
@@ -26,9 +30,36 @@ class Stage(BaseStage):
         if event.type == pygame.QUIT:
           done = True
 
+    
       all_sprites.update()
+      #Verifica colisões
+      hits = pygame.sprite.spritecollide(player, all_provas, True)
+      #Atualiza vidas
+      if hits:
+        lives-=1
+      if lives == 0:
+        done = True
+      #Caso haja uma colisão o obstaculo é reposto
+      for prova in hits:
+        m = p()
+        all_sprites.add(m)
+        all_provas.add(m)
+
+      #VIDAS
+      font = pygame.font.SysFont(None, 20)
+      Vidas = font.render('Vidas: {}'.format(lives), True, (0, 255, 0))
+      #SCORE
+      score+=1
+      Pontos = font.render('Score: {}'.format(score), True, (0, 0, 255))
+      
+
+
       self.window.fill((0, 0, 0))
       all_sprites.draw(self.window)
+      self.window.blit(Vidas, (50, 100))
+      self.window.blit(Pontos, (50, 130))
+
+      
       pygame.display.flip()
 
 '''
