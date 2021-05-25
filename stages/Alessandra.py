@@ -31,7 +31,7 @@ class Alessandra(pygame.sprite.Sprite):
     if keystate[pygame.K_SPACE] and not self.pulando and not self.uphold:
       self.uphold = True
       self.pulando = True
-      self.speedy = -18
+      self.speedy = -15
 
     if not keystate[pygame.K_SPACE]:
       self.uphold = False
