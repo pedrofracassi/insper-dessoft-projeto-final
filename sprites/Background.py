@@ -4,7 +4,7 @@ from constants import WIDTH, HEIGHT
 class Background (pygame.sprite.Sprite):
   def __init__(self, x_inicial = 0):
     pygame.sprite.Sprite.__init__(self)
-    self.image = pygame.transform.scale(pygame.image.load('./assets/background.jpg').convert(), (WIDTH, HEIGHT))
+    self.image = pygame.transform.scale(pygame.image.load('./assets/fundo.png').convert(), (WIDTH, HEIGHT))
     self.rect = self.image.get_rect()
     self.rect.x = x_inicial
     self.speedx = -4
