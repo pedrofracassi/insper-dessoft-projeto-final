@@ -17,9 +17,9 @@ class Alessandra(pygame.sprite.Sprite):
     self.image.fill(GREEN)
     self.rect = self.image.get_rect()
     self.rect.centerx = WIDTH / 2
-    self.rect.bottom = HEIGHT / 2
+    self.rect.bottom = HEIGHT / (1.2)
     self.pulando = False
-    self.chao = HEIGHT / 2
+    self.chao = HEIGHT /(1.2)
     self.speedy = 0
     self.uphold = False
 

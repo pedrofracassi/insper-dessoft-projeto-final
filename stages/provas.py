@@ -17,8 +17,8 @@ class p(pygame.sprite.Sprite):
     self.image = provinha
     self.rect = self.image.get_rect()
     self.rect.centerx = WIDTH
-    self.rect.bottom = (HEIGHT / 2) + 75
-    self.chao = HEIGHT / 2
+    self.rect.bottom = HEIGHT / (1.2)
+    self.chao = HEIGHT / (1.2)
     self.speedx = -4
 
   def update (self):
