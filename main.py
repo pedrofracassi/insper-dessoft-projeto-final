@@ -23,8 +23,12 @@ def get_stage(name):
     if stage.name == name:
       return stage
 
-res = get_stage('menu').run()
-if res == 'game':
-  get_stage('jogo').run()
+done = False
+while not done:
+  res = get_stage('menu').run()
+  if res == 'game':
+    res = get_stage('jogo').run()
+    if res != 'dead':
+      done = True
 
 pygame.quit()

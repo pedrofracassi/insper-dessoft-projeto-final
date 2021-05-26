@@ -1,9 +1,12 @@
+from constants import WIDTH
 from stages.Alessandra import Alessandra
 from stages.provas import p
 from stages.obs2 import x
 from stages.boost import b 
 import pygame
 from stage import BaseStage
+
+from sprites.Background import Background
 
 class Stage(BaseStage):
   def __init__(self, window, state) -> None:
@@ -19,6 +22,13 @@ class Stage(BaseStage):
     prova = p()
     obstaculo = x()
     boost = b()
+
+    fundo1 = Background()
+    all_sprites.add(fundo1)
+
+    fundo2 = Background(WIDTH)
+    all_sprites.add(fundo2)
+
     all_sprites.add(prova)
     all_sprites.add(player)
     all_sprites.add(obstaculo)
@@ -50,6 +60,7 @@ class Stage(BaseStage):
         lives+=1
       if lives == 0:
         done = True
+        return 'dead'
       #Caso haja uma colisão o obstaculo é reposto
       for prova in hits:
         prova_ = p()

@@ -1,7 +1,5 @@
 import pygame
-
-WIDTH = 600
-HEIGHT = 500
+from constants import WIDTH, HEIGHT
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
@@ -22,7 +20,7 @@ class b(pygame.sprite.Sprite):
     self.rect.centerx = 600
     self.rect.bottom = (HEIGHT / 2) -45
     self.chao = HEIGHT / 2
-    self.speedx = -3
+    self.speedx = -4
 
   def update (self):
     self.rect.centerx += self.speedx
