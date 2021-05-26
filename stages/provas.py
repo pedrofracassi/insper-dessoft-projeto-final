@@ -19,7 +19,7 @@ class p(pygame.sprite.Sprite):
     self.rect.centerx = WIDTH
     self.rect.bottom = (HEIGHT / 2) + 75
     self.chao = HEIGHT / 2
-    self.speedx = -WIDTH*0.02
+    self.speedx = -4
 
   def update (self):
     self.rect.centerx += self.speedx

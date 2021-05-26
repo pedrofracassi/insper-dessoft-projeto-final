@@ -17,7 +17,7 @@ class b(pygame.sprite.Sprite):
     provinha = pygame.transform.scale(boost, (60, 70))
     self.image = provinha
     self.rect = self.image.get_rect()
-    self.rect.centerx = 600
+    self.rect.centerx = WIDTH
     self.rect.bottom = (HEIGHT / 2) 
     self.chao = HEIGHT / 2
     self.speedx = -4
@@ -26,4 +26,4 @@ class b(pygame.sprite.Sprite):
     self.rect.centerx += self.speedx
     self.rect.bottom+=0
     if self.rect.centerx<=-5:
-        self.rect.centerx = 4000
+        self.rect.centerx = WIDTH*3
