@@ -15,7 +15,7 @@ class p(pygame.sprite.Sprite):
   def __init__(self):
     pygame.sprite.Sprite.__init__(self)
     pr= pygame.image.load('stages/pixil-frame-0 (1).png').convert()
-    provinha = pygame.transform.scale(pr, (60, 70))
+    provinha = pygame.transform.scale(pr, (55, 70))
     self.image = provinha
     self.rect = self.image.get_rect()
     self.rect.centerx = 600
