@@ -13,12 +13,12 @@ YELLOW = (255, 255, 0)
 class b(pygame.sprite.Sprite):
   def __init__(self):
     pygame.sprite.Sprite.__init__(self)
-    boost= pygame.image.load('stages/café.png').convert()
+    boost= pygame.image.load('stages/café.png').convert_alpha()
     provinha = pygame.transform.scale(boost, (60, 70))
     self.image = provinha
     self.rect = self.image.get_rect()
     self.rect.centerx = 600
-    self.rect.bottom = (HEIGHT / 2) -45
+    self.rect.bottom = (HEIGHT / 2) 
     self.chao = HEIGHT / 2
     self.speedx = -4
 
