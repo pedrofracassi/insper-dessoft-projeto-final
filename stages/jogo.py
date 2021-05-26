@@ -5,9 +5,6 @@ from stages.boost import b
 import pygame
 from stage import BaseStage
 
-WIDTH = 600
-HEIGHT = 500
-
 class Stage(BaseStage):
   def __init__(self, window, state) -> None:
     super(Stage, self).__init__('jogo', window, state)

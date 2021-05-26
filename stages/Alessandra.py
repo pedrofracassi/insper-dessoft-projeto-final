@@ -1,7 +1,5 @@
 import pygame
-
-WIDTH = 600
-HEIGHT = 500
+from constants import WIDTH, HEIGHT
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)

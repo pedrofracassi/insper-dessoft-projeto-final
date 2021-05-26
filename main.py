@@ -2,9 +2,11 @@ from game_state import GameState
 from stages import menu, jogo
 import pygame
 
+from constants import WIDTH, HEIGHT
+
 pygame.init()
 
-window = pygame.display.set_mode((600, 500))
+window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Café com a Alessandra')
 
 game = True

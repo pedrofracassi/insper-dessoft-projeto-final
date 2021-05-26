@@ -1,4 +1,4 @@
-from stages.jogo import HEIGHT, WIDTH
+from constants import HEIGHT, WIDTH
 import pygame
 from stage import BaseStage
 
