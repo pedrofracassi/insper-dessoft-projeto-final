@@ -11,15 +11,15 @@ BLUE = (0, 0, 255)
 YELLOW = (255, 255, 0)
 
 
-
 class p(pygame.sprite.Sprite):
   def __init__(self):
     pygame.sprite.Sprite.__init__(self)
-    self.image = pygame.Surface((10, 10))
-    self.image.fill(YELLOW)
+    pr= pygame.image.load('stages/pixil-frame-0 (1).png').convert()
+    provinha = pygame.transform.scale(pr, (60, 70))
+    self.image = provinha
     self.rect = self.image.get_rect()
     self.rect.centerx = 600
-    self.rect.bottom = (HEIGHT / 2) + 45
+    self.rect.bottom = (HEIGHT / 2) + 70
     self.chao = HEIGHT / 2
     self.speedx = -2
 
