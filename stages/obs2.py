@@ -15,8 +15,9 @@ YELLOW = (255, 255, 0)
 class x(pygame.sprite.Sprite):
   def __init__(self):
     pygame.sprite.Sprite.__init__(self)
-    self.image = pygame.Surface((30, 10))
-    self.image.fill(BLUE)
+    a = pygame.image.load('stages/cone.png').convert()
+    coninho = pygame.transform.scale(a, (60, 70)) 
+    self.image = coninho
     self.rect = self.image.get_rect()
     self.rect.centerx = 2000
     self.rect.bottom = (HEIGHT / 2) + 45
