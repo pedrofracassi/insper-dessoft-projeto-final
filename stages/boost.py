@@ -15,8 +15,9 @@ YELLOW = (255, 255, 0)
 class b(pygame.sprite.Sprite):
   def __init__(self):
     pygame.sprite.Sprite.__init__(self)
-    self.image = pygame.Surface((30, 10))
-    self.image.fill(RED)
+    boost= pygame.image.load('stages/café.png').convert()
+    provinha = pygame.transform.scale(boost, (60, 70))
+    self.image = provinha
     self.rect = self.image.get_rect()
     self.rect.centerx = 600
     self.rect.bottom = (HEIGHT / 2) -45

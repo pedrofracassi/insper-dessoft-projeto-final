@@ -10,7 +10,7 @@ GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 YELLOW = (255, 255, 0)
 
-GRAVIDADE = 0.8
+GRAVIDADE = 0.5
 
 class Alessandra(pygame.sprite.Sprite):
   def __init__(self):
@@ -31,7 +31,7 @@ class Alessandra(pygame.sprite.Sprite):
     if keystate[pygame.K_SPACE] and not self.pulando and not self.uphold:
       self.uphold = True
       self.pulando = True
-      self.speedy = -20
+      self.speedy = -15
 
     if not keystate[pygame.K_SPACE]:
       self.uphold = False

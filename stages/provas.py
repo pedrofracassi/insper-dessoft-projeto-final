@@ -19,7 +19,7 @@ class p(pygame.sprite.Sprite):
     self.image = provinha
     self.rect = self.image.get_rect()
     self.rect.centerx = 600
-    self.rect.bottom = (HEIGHT / 2) + 70
+    self.rect.bottom = (HEIGHT / 2) + 75
     self.chao = HEIGHT / 2
     self.speedx = -2
 
