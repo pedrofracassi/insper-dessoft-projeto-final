@@ -1,5 +1,6 @@
 from game_state import GameState
-from stages import menu, jogo
+from stages import MenuStage
+from stages import JogoStage
 import pygame
 
 from constants import WIDTH, HEIGHT
@@ -14,8 +15,8 @@ game = True
 state = GameState()
 
 stages = [
-  menu.Stage(window, state),
-  jogo.Stage(window, state)
+  MenuStage(window, state),
+  JogoStage(window, state)
 ]
 
 def get_stage(name):

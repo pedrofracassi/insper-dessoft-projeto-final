@@ -12,7 +12,7 @@ YELLOW = (255, 255, 0)
 class p(pygame.sprite.Sprite):
   def __init__(self):
     pygame.sprite.Sprite.__init__(self)
-    pr= pygame.image.load('stages/pixil-frame-0 (1).png').convert_alpha()
+    pr= pygame.image.load('assets/prova.png').convert_alpha()
     provinha = pygame.transform.scale(pr, (100, 100))
     self.image = provinha
     self.rect = self.image.get_rect()
