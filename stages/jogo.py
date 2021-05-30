@@ -19,11 +19,14 @@ class Stage(BaseStage):
     all_provas = pygame.sprite.Group()
     all_obs = pygame.sprite.Group()
     all_boosts = pygame.sprite.Group()
+    all_som_2 = pygame.sprite.Group()
+
+
     player = Alessandra()
     prova = obstaculo_prova()
     obstaculo = obstaculo_cone()
     boost = cafe()
-    som_2 = som_1()
+    som = som_1()
 
     fundo1 = Background()
     all_sprites.add(fundo1)
@@ -38,6 +41,8 @@ class Stage(BaseStage):
     all_obs.add(obstaculo)
     all_provas.add(prova)
     all_boosts.add(boost)
+    all_som_2.add(som)
+    
     lives = 3
     score = 0
     
