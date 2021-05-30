@@ -3,7 +3,7 @@ from stages.Alessandra import Alessandra
 from stages.provas import p
 from stages.obs2 import x
 from stages.boost import b  
-from stages.som import som_jogo
+from stages.som import som_1
 import pygame
 from stage import BaseStage
 

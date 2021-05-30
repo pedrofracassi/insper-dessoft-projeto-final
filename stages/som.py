@@ -1,5 +1,5 @@
 import pygame
-class som_jogo(pygame.sprite.Sprite):
+class som_1(pygame.sprite.Sprite):
   def __init__(self):
     pygame.sprite.Sprite.__init__(self)
     pygame.init()
