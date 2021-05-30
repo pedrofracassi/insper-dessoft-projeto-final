@@ -23,6 +23,7 @@ class Stage(BaseStage):
     prova = obstaculo_prova()
     obstaculo = obstaculo_cone()
     boost = cafe()
+    som_2 = som_1()
 
     fundo1 = Background()
     all_sprites.add(fundo1)
