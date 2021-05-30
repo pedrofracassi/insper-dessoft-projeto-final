@@ -1,8 +1,8 @@
 from constants import WIDTH
 from stages.Alessandra import Alessandra
-from stages.provas import p
-from stages.obs2 import x
-from stages.boost import b  
+from stages.provas import obstaculo_prova
+from stages.obs2 import obstaculo_cone
+from stages.boost import cafe 
 from stages.som import som_1
 import pygame
 from stage import BaseStage
@@ -20,9 +20,9 @@ class Stage(BaseStage):
     all_obs = pygame.sprite.Group()
     all_boosts = pygame.sprite.Group()
     player = Alessandra()
-    prova = p()
-    obstaculo = x()
-    boost = b()
+    prova = obstaculo_prova()
+    obstaculo = obstaculo_cone()
+    boost = cafe()
 
     fundo1 = Background()
     all_sprites.add(fundo1)
@@ -64,15 +64,15 @@ class Stage(BaseStage):
         return 'dead'
       #Caso haja uma colisão o obstaculo é reposto
       for prova in hits:
-        prova_ = p()
+        prova_ = obstaculo_prova()
         all_sprites.add(prova_)
         all_provas.add(prova_)
       for obstaculo in hits2:
-        obstaculo_ = x()
+        obstaculo_ = obstaculo_cone()
         all_sprites.add(obstaculo_)
         all_provas.add(obstaculo_)
       for boost in hits2:
-        boost_ = b()
+        boost_ = cafe()
         all_sprites.add(boost_)
         all_provas.add(boost_)
 

@@ -10,7 +10,7 @@ YELLOW = (255, 255, 0)
 
 
 
-class b(pygame.sprite.Sprite):
+class cafe(pygame.sprite.Sprite):
   def __init__(self):
     pygame.sprite.Sprite.__init__(self)
     boost= pygame.image.load('stages/café.png').convert_alpha()
