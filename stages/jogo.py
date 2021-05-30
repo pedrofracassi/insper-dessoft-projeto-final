@@ -2,7 +2,8 @@ from constants import WIDTH
 from stages.Alessandra import Alessandra
 from stages.provas import p
 from stages.obs2 import x
-from stages.boost import b 
+from stages.boost import b  
+from stages.som import som_jogo
 import pygame
 from stage import BaseStage
 
