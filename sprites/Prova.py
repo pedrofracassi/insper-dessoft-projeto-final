@@ -9,7 +9,7 @@ BLUE = (0, 0, 255)
 YELLOW = (255, 255, 0)
 
 
-class p(pygame.sprite.Sprite):
+class obstaculo_prova(pygame.sprite.Sprite):
   def __init__(self):
     pygame.sprite.Sprite.__init__(self)
     pr= pygame.image.load('assets/prova.png').convert_alpha()
@@ -17,9 +17,9 @@ class p(pygame.sprite.Sprite):
     self.image = provinha
     self.rect = self.image.get_rect()
     self.rect.centerx = WIDTH
-    self.rect.bottom = (HEIGHT / 2) + 75
-    self.chao = HEIGHT / 2
-    self.speedx = -WIDTH*0.02
+    self.rect.bottom = HEIGHT / (1.2)
+    self.chao = HEIGHT / (1.2)
+    self.speedx = -4
 
   def update (self):
     self.rect.centerx += self.speedx

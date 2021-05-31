@@ -10,7 +10,7 @@ YELLOW = (255, 255, 0)
 
 
 
-class x(pygame.sprite.Sprite):
+class obstaculo_cone(pygame.sprite.Sprite):
   def __init__(self):
     pygame.sprite.Sprite.__init__(self)
     a = pygame.image.load('assets/cone.png').convert_alpha()
@@ -18,8 +18,8 @@ class x(pygame.sprite.Sprite):
     self.image = coninho
     self.rect = self.image.get_rect()
     self.rect.centerx = 2000
-    self.rect.bottom = (HEIGHT / 2) + 45
-    self.chao = HEIGHT / 2
+    self.rect.bottom = HEIGHT / (1.2)
+    self.chao = HEIGHT / (1.2)
     self.speedx = -4
 
   def update (self):

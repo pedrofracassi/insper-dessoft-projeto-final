@@ -13,13 +13,14 @@ GRAVIDADE = 0.5
 class Alessandra(pygame.sprite.Sprite):
   def __init__(self):
     super(Alessandra, self).__init__()
-    self.image = pygame.Surface((50, 40))
-    self.image.fill(GREEN)
+    Le= pygame.image.load('./assets/alessandra.png').convert_alpha()
+    Ale = pygame.transform.scale(Le, (200, 300))
+    self.image = Ale
     self.rect = self.image.get_rect()
     self.rect.centerx = WIDTH / 2
-    self.rect.bottom = HEIGHT / 2
+    self.rect.bottom = HEIGHT / (1.05)
     self.pulando = False
-    self.chao = HEIGHT / 2
+    self.chao = HEIGHT /(1.05)
     self.speedy = 0
     self.uphold = False
 
