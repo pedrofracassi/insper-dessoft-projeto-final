@@ -40,6 +40,6 @@ class Alessandra(pygame.sprite.Sprite):
     if self.pulando:
       self.speedy += GRAVIDADE
 
-    if self.rect.y > self.chao:
+    if self.rect.bottom > self.chao:
       self.speedy = 0
       self.pulando = False
