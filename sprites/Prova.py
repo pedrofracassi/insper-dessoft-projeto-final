@@ -9,7 +9,7 @@ BLUE = (0, 0, 255)
 YELLOW = (255, 255, 0)
 
 
-class obstaculo_prova(pygame.sprite.Sprite):
+class Prova(pygame.sprite.Sprite):
   def __init__(self):
     pygame.sprite.Sprite.__init__(self)
     pr= pygame.image.load('assets/prova.png').convert_alpha()

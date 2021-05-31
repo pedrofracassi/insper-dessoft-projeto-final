@@ -10,7 +10,7 @@ YELLOW = (255, 255, 0)
 
 
 
-class obstaculo_cone(pygame.sprite.Sprite):
+class Cone(pygame.sprite.Sprite):
   def __init__(self):
     pygame.sprite.Sprite.__init__(self)
     a = pygame.image.load('assets/cone.png').convert_alpha()

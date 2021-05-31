@@ -1,8 +1,8 @@
 from constants import HEIGHT, WIDTH
 import pygame
-from structures import BaseStage
+import structures.BaseStage
 
-class Stage(BaseStage):
+class Stage(structures.BaseStage.BaseStage):
   def __init__(self, window):
       super(Stage, self).__init__('menu', window)
       self.y = 0

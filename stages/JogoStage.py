@@ -8,9 +8,9 @@ import pygame
 
 from sprites import Background
 
-class JogoStage(BaseStage):
-  def __init__(self, window, state) -> None:
-    super(JogoStage, self).__init__('jogo', window, state)
+class Stage(BaseStage.BaseStage):
+  def __init__(self, window) -> None:
+    super(Stage, self).__init__('jogo', window)
     self.window = window
 
   def run (self):
@@ -18,15 +18,15 @@ class JogoStage(BaseStage):
     all_provas = pygame.sprite.Group()
     all_obs = pygame.sprite.Group()
     all_boosts = pygame.sprite.Group()
-    player = Alessandra()
-    prova = Prova()
-    obstaculo = Cone()
-    boost = Boost()
+    player = Alessandra.Alessandra()
+    prova = Prova.Prova()
+    obstaculo = Cone.Cone()
+    boost = Boost.Boost()
 
-    fundo1 = Background()
+    fundo1 = Background.Background()
     all_sprites.add(fundo1)
 
-    fundo2 = Background(WIDTH)
+    fundo2 = Background.Background(WIDTH)
     all_sprites.add(fundo2)
 
     all_sprites.add(prova)
@@ -61,15 +61,15 @@ class JogoStage(BaseStage):
         return 'dead'
       #Caso haja uma colisão o obstaculo é reposto
       for prova in hits:
-        prova_ = Prova()
+        prova_ = Prova.Prova()
         all_sprites.add(prova_)
         all_provas.add(prova_)
       for obstaculo in hits2:
-        obstaculo_ = Cone()
+        obstaculo_ = Cone.Cone()
         all_sprites.add(obstaculo_)
         all_provas.add(obstaculo_)
       for boost in hits2:
-        boost_ = Boost()
+        boost_ = Boost.Boost()
         all_sprites.add(boost_)
         all_provas.add(boost_)
 
