@@ -3,7 +3,7 @@ from sprites import Alessandra
 from sprites import Prova
 from sprites import Cone
 from sprites import Boost
-from structure import BaseStage
+from structures import BaseStage
 import pygame
 
 from sprites import Background
