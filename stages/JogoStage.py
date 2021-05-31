@@ -3,6 +3,7 @@ from sprites import Alessandra
 from sprites import Prova
 from sprites import Cone
 from sprites import Boost
+from sprites import Som
 from structures import BaseStage
 import pygame
 
@@ -18,10 +19,13 @@ class Stage(BaseStage.BaseStage):
     all_provas = pygame.sprite.Group()
     all_obs = pygame.sprite.Group()
     all_boosts = pygame.sprite.Group()
+    all_Som_1 = pygame.sprite.Group()
     player = Alessandra.Alessandra()
     prova = Prova.Prova()
     obstaculo = Cone.Cone()
     boost = Boost.Boost()
+    som_2 = Som.som_1()
+    
 
     fundo1 = Background.Background()
     all_sprites.add(fundo1)
@@ -36,6 +40,8 @@ class Stage(BaseStage.BaseStage):
     all_obs.add(obstaculo)
     all_provas.add(prova)
     all_boosts.add(boost)
+    all_Som_1.add(som_2)
+  
     lives = 3
     score = 0
     
