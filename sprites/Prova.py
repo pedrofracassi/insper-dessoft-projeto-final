@@ -13,12 +13,12 @@ class Prova(pygame.sprite.Sprite):
   def __init__(self):
     pygame.sprite.Sprite.__init__(self)
     pr= pygame.image.load('assets/prova.png').convert_alpha()
-    provinha = pygame.transform.scale(pr, (100, 100))
+    provinha = pygame.transform.scale(pr, (40, 50))
     self.image = provinha
     self.rect = self.image.get_rect()
     self.rect.centerx = WIDTH
-    self.rect.bottom = HEIGHT / (1.2)
-    self.chao = HEIGHT / (1.2)
+    self.rect.bottom = HEIGHT / (1.09)
+    self.chao = HEIGHT / (1.09)
     self.speedx = -4
 
   def update (self):

@@ -14,7 +14,7 @@ class Boost(pygame.sprite.Sprite):
   def __init__(self):
     pygame.sprite.Sprite.__init__(self)
     boost= pygame.image.load('assets/café.png').convert_alpha()
-    provinha = pygame.transform.scale(boost, (60, 70))
+    provinha = pygame.transform.scale(boost, (40, 50))
     self.image = provinha
     self.rect = self.image.get_rect()
     self.rect.centerx = WIDTH

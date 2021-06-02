@@ -15,11 +15,11 @@ class Alessandra(pygame.sprite.Sprite):
   def __init__(self):
     super(Alessandra, self).__init__()
     Le= pygame.image.load('./assets/alessandra.png').convert_alpha()
-    Ale = pygame.transform.scale(Le, (200, 300))
+    Ale = pygame.transform.scale(Le, (100, 150))
     Le2 = pygame.image.load('./assets/alessandra2.png').convert_alpha()
-    Ale2 = pygame.transform.scale(Le2, (200, 300))
+    Ale2 = pygame.transform.scale(Le2, (100, 150))
     Le3= pygame.image.load('./assets/alessandra3.png').convert_alpha()
-    Ale3 = pygame.transform.scale(Le3, (200, 300))
+    Ale3 = pygame.transform.scale(Le3, (100, 150))
     self.images = [Ale,Ale2,Ale3]
     self.tempo = [0,1,2,3,4,5]
     self.contador1 = 0
@@ -27,9 +27,9 @@ class Alessandra(pygame.sprite.Sprite):
     self.image = self.images[0]
     self.rect = self.image.get_rect()
     self.rect.centerx = WIDTH / 2
-    self.rect.bottom = HEIGHT / (1.05)
+    self.rect.bottom = HEIGHT / (1.09)
     self.pulando = False
-    self.chao = HEIGHT /(1.05)
+    self.chao = HEIGHT /(1.09)
     self.speedy = 0
     self.uphold = False
 
