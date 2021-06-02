@@ -41,7 +41,7 @@ class Alessandra(pygame.sprite.Sprite):
       self.image = self.images[1]
       self.contador2+=1
       if self.contador2 ==5:
-        self.contador = 0
+        self.contador1 = 0
         self.contador2=0
       
     
