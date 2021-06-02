@@ -10,12 +10,21 @@ YELLOW = (255, 255, 0)
 
 GRAVIDADE = 0.5
 
+
 class Alessandra(pygame.sprite.Sprite):
   def __init__(self):
     super(Alessandra, self).__init__()
     Le= pygame.image.load('./assets/alessandra.png').convert_alpha()
     Ale = pygame.transform.scale(Le, (200, 300))
-    self.image = Ale
+    Le2 = pygame.image.load('./assets/alessandra2.png').convert_alpha()
+    Ale2 = pygame.transform.scale(Le2, (200, 300))
+    Le3= pygame.image.load('./assets/alessandra3.png').convert_alpha()
+    Ale3 = pygame.transform.scale(Le3, (200, 300))
+    self.images = [Ale,Ale2,Ale3]
+    self.tempo = [0,1,2,3,4,5]
+    self.contador1 = 0
+    self.contador2 = 0
+    self.image = self.images[0]
     self.rect = self.image.get_rect()
     self.rect.centerx = WIDTH / 2
     self.rect.bottom = HEIGHT / (1.05)
@@ -25,6 +34,18 @@ class Alessandra(pygame.sprite.Sprite):
     self.uphold = False
 
   def update (self):
+    if  self.contador1 in self.tempo and not self.pulando :
+      self.image = self.images[0]
+      self.contador1+=1
+    if self.contador1 not in self.tempo and not self.pulando:
+      self.image = self.images[1]
+      self.contador2+=1
+      if self.contador2 ==5:
+        self.contador = 0
+        self.contador2=0
+      
+    
+
     self.speedx = 0
     keystate = pygame.key.get_pressed()
     if keystate[pygame.K_SPACE] and not self.pulando and not self.uphold:
@@ -35,10 +56,11 @@ class Alessandra(pygame.sprite.Sprite):
     if not keystate[pygame.K_SPACE]:
       self.uphold = False
 
-    self.rect.y += self.speedy
+    self.rect.bottom += self.speedy
     
     if self.pulando:
       self.speedy += GRAVIDADE
+      self.image = self.images[2]
 
     if self.rect.bottom > self.chao:
       self.speedy = 0
