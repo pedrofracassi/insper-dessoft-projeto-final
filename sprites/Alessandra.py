@@ -63,5 +63,6 @@ class Alessandra(pygame.sprite.Sprite):
       self.image = self.images[2]
 
     if self.rect.bottom > self.chao:
+      self.rect.bottom = self.chao
       self.speedy = 0
       self.pulando = False

@@ -62,9 +62,7 @@ class Stage(BaseStage.BaseStage):
         lives-=1
       if hits3:
         lives+=1
-      if lives == 0:
-        done = True
-        return 'dead'
+
       #Caso haja uma colisão o obstaculo é reposto
       for prova in hits:
         prova_ = Prova.Prova()
@@ -91,4 +89,9 @@ class Stage(BaseStage.BaseStage):
       self.window.blit(Vidas, (50, 100))
       self.window.blit(Pontos, (50, 130))
 
+
       pygame.display.flip()
+
+      if lives == 0:
+        done = True
+        return 'dead'
