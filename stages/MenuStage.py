@@ -2,6 +2,7 @@ from constants import HEIGHT, WIDTH
 import pygame
 import structures.BaseStage
 from sprites import button
+from sprites import MenuBG
 
 class Stage(structures.BaseStage.BaseStage):
   def __init__(self, window):
@@ -11,8 +12,10 @@ class Stage(structures.BaseStage.BaseStage):
       self.window = window
 
   def run (self):
-    button_start = button.button(100, 100, 300, 100, 'BOTÃO DAORA')
-
+    bg = MenuBG.MenuBG()
+    button_start = button.button(WIDTH - 300, HEIGHT - 150, 250, 100, 'Jogar')
+    sprites = pygame.sprite.Group()
+    sprites.add(bg)
     font = pygame.font.SysFont(None, 32)
     texto = font.render('APERTE ESPAÇO PARA INICIAR', True, (0, 0, 255))
     texto2 = font.render('MENU DAORA', True, (255, 255, 255))
@@ -24,13 +27,14 @@ class Stage(structures.BaseStage.BaseStage):
     done = False
     while not done:
       pygame.time.Clock().tick(60)
+      self.window.fill((0, 0, 0))
+      sprites.draw(self.window)
       button_start.draw(self.window)
       for event in pygame.event.get():
         if event.type == pygame.QUIT:
           done = True
           return
-        if event.type == pygame.KEYDOWN:
+        if event.type == pygame.MOUSEBUTTONDOWN and button_start.isBeingHovered():
           done = True
           return 'game'
-
       pygame.display.update()
