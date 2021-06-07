@@ -20,10 +20,9 @@ class Boost(pygame.sprite.Sprite):
     self.rect.centerx = WIDTH
     self.rect.bottom = HEIGHT / (1.5)
     self.chao = HEIGHT / (1.2)
-    self.speedx = -4
 
-  def update (self):
-    self.rect.centerx += self.speedx
+  def update (self, speed):
+    self.rect.centerx += speed
     self.rect.bottom+=0
     if self.rect.centerx<=-5:
         self.rect.centerx = WIDTH*3

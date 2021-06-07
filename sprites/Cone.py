@@ -20,10 +20,9 @@ class Cone(pygame.sprite.Sprite):
     self.rect.centerx = 2000
     self.rect.bottom = HEIGHT / (1.09)
     self.chao = HEIGHT / (1.09)
-    self.speedx = -4
 
-  def update (self):
-    self.rect.centerx += self.speedx
+  def update (self, speed):
+    self.rect.centerx += speed
     self.rect.bottom+=0
     if self.rect.centerx<=-5:
         self.rect.centerx = 2000

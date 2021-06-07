@@ -33,7 +33,7 @@ class Alessandra(pygame.sprite.Sprite):
     self.speedy = 0
     self.uphold = False
 
-  def update (self):
+  def update (self, speed):
     if  self.contador1 in self.tempo and not self.pulando :
       self.image = self.images[0]
       self.contador1+=1

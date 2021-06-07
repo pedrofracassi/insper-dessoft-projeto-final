@@ -7,9 +7,8 @@ class Background (pygame.sprite.Sprite):
     self.image = pygame.transform.scale(pygame.image.load('./assets/fundo_atualizado(1).jpg').convert(), (WIDTH, HEIGHT))
     self.rect = self.image.get_rect()
     self.rect.x = x_inicial
-    self.speedx = -4
 
-  def update (self):
-    self.rect.x += self.speedx
+  def update (self, speed):
+    self.rect.x += speed
     if self.rect.x <= -WIDTH:
         self.rect.x = WIDTH
