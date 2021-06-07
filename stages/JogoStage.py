@@ -1,4 +1,4 @@
-from constants import WIDTH
+from constants import HEIGHT, WIDTH
 from sprites import Alessandra
 from sprites import Prova
 from sprites import Cone
@@ -7,13 +7,11 @@ from sprites import Som
 from structures import BaseStage
 import pygame
 
-from sprites import Background
-
 class Stage(BaseStage.BaseStage):
   def __init__(self, window) -> None:
     super(Stage, self).__init__('jogo', window)
     self.window = window
-    self.speed = -4
+    self.speed = -5
 
   def run (self):
     all_sprites = pygame.sprite.Group()
@@ -27,12 +25,10 @@ class Stage(BaseStage.BaseStage):
     boost = Boost.Boost()
     som_2 = Som.som_1()
     
+    bg_img = pygame.transform.scale(pygame.image.load('./assets/fundo_atualizado(1).jpg').convert(), (WIDTH, HEIGHT))
 
-    fundo1 = Background.Background()
-    all_sprites.add(fundo1)
-
-    fundo2 = Background.Background(WIDTH)
-    all_sprites.add(fundo2)
+    bg1 = 0
+    bg2 = WIDTH
 
     all_sprites.add(prova)
     all_sprites.add(player)
@@ -48,21 +44,36 @@ class Stage(BaseStage.BaseStage):
     self.speed = -5
     
     done = False
+    frame_count = 0
     while not done:
       pygame.time.Clock().tick(60)
       for event in pygame.event.get():
         if event.type == pygame.QUIT:
           done = True
 
-      self.speed += -0.005
+      frame_count += 1
+
+      if frame_count == 240:
+        frame_count = 0
+        self.speed += -1
+
+      bg1 += self.speed
+      bg2 += self.speed
+
+      if bg2 < -WIDTH:
+        bg2 = bg1 + WIDTH
+
+      if bg1 < -WIDTH:
+        bg1 = bg2 + WIDTH
 
       all_sprites.update(self.speed)
+
       hits = pygame.sprite.spritecollide(player, all_provas, True)
       hits2 = pygame.sprite.spritecollide(player, all_obs, True)
       hits3 = pygame.sprite.spritecollide(player, all_boosts, True)
       #Atualiza vidas
       if hits or hits2:
-        vidas-=1
+        pass # vidas-=1
       if hits3:
         vidas+=1
 
@@ -88,10 +99,14 @@ class Stage(BaseStage.BaseStage):
       Pontos = font.render('Score: {}'.format(score), True, (0, 0, 255))
     
       self.window.fill((0, 0, 0))
-      all_sprites.draw(self.window)
+
+      self.window.blit(bg_img, (bg1, 0))
+      self.window.blit(bg_img, (bg2, 0))
+
       self.window.blit(Vidas, (50, 100))
       self.window.blit(Pontos, (50, 130))
 
+      all_sprites.draw(self.window)
       pygame.display.flip()
 
       if vidas == 0:

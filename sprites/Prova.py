@@ -24,7 +24,7 @@ class Prova(pygame.sprite.Sprite):
     self.rect.centerx += speed
     self.rect.bottom+=0
     if self.rect.centerx<=-5:
-        self.rect.centerx = 600
+        self.rect.centerx = WIDTH + 40
 
     
     

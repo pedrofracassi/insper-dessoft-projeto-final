@@ -8,7 +8,7 @@ GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 YELLOW = (255, 255, 0)
 
-GRAVIDADE = 0.5
+GRAVIDADE = 0.7
 
 
 class Alessandra(pygame.sprite.Sprite):
@@ -20,7 +20,7 @@ class Alessandra(pygame.sprite.Sprite):
     Ale2 = pygame.transform.scale(Le2, (100, 150))
     Le3= pygame.image.load('./assets/alessandra3.png').convert_alpha()
     Ale3 = pygame.transform.scale(Le3, (100, 150))
-    self.images = [Ale,Ale2,Ale3]
+    self.images = [Ale, Ale2, Ale3]
     self.tempo = [0,1,2,3,4,5]
     self.contador1 = 0
     self.contador2 = 0
@@ -42,12 +42,11 @@ class Alessandra(pygame.sprite.Sprite):
       self.contador2+=1
       if self.contador2 ==5:
         self.contador1 = 0
-        self.contador2=0
-      
-    
+        self.contador2 = 0
 
     self.speedx = 0
     keystate = pygame.key.get_pressed()
+    
     if keystate[pygame.K_SPACE] and not self.pulando and not self.uphold:
       self.uphold = True
       self.pulando = True
