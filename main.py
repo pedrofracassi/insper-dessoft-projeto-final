@@ -28,5 +28,7 @@ while not done:
     res = get_stage('jogo').run()
     if res != 'dead':
       done = True
+  else:
+    done = True
 
 pygame.quit()
