@@ -38,5 +38,5 @@ class Stage(structures.BaseStage.BaseStage):
           return 'game'
         if event.type == pygame.MOUSEBUTTONDOWN and button_start_1.isBeingHovered():
           done = True 
-          return 'game'
+          return 'restart'
       pygame.display.update()

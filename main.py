@@ -31,6 +31,8 @@ while not done:
       done = True
   if res == 'dead':
     res = get_stage('end').run()
+    if res == "restart":
+      res = get_stage('jogo').run()
   else:
     done = True
     
