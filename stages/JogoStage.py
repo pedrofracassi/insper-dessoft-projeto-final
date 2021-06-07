@@ -89,7 +89,6 @@ class Stage(BaseStage.BaseStage):
       self.window.blit(Vidas, (50, 100))
       self.window.blit(Pontos, (50, 130))
 
-
       pygame.display.flip()
 
       if lives == 0:
