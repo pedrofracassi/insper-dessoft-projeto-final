@@ -1,5 +1,6 @@
 from stages import MenuStage
 from stages import JogoStage
+from stages import EndStage
 import pygame
 
 from constants import WIDTH, HEIGHT
@@ -13,7 +14,7 @@ game = True
 
 stages = [
   MenuStage.Stage(window),
-  JogoStage.Stage(window)
+  JogoStage.Stage(window),EndStage.Stage(window)
 ]
 
 def get_stage(name):
@@ -28,7 +29,8 @@ while not done:
     res = get_stage('jogo').run()
     if res != 'dead':
       done = True
-  else:
-    done = True
-
+  if res == 'dead':
+    res = get_stage('end').run()
+    
+   
 pygame.quit()
