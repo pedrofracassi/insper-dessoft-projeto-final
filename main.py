@@ -14,7 +14,8 @@ game = True
 
 stages = [
   MenuStage.Stage(window),
-  JogoStage.Stage(window),EndStage.Stage(window)
+  JogoStage.Stage(window),
+  EndStage.Stage(window)
 ]
 
 def get_stage(name):
