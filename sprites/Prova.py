@@ -16,7 +16,7 @@ class Prova(pygame.sprite.Sprite):
     provinha = pygame.transform.scale(pr, (40, 50))
     self.image = provinha
     self.rect = self.image.get_rect()
-    self.rect.centerx = WIDTH
+    self.rect.centerx = WIDTH + 40
     self.rect.bottom = HEIGHT / (1.09)
     self.chao = HEIGHT / (1.09)
     self.speedx = -4
