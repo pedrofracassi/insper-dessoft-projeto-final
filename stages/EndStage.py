@@ -16,6 +16,9 @@ class Stage(structures.BaseStage.BaseStage):
     btn_width = 200
     btn_height = 70
     button_start = button.button(WIDTH - btn_width - 50, 50, btn_width, btn_height, 'Voltar pro Menu')
+    btn_width_1 = 200
+    btn_height_1 = 70
+    button_start_1 = button.button(WIDTH - btn_width_1 - 50, 130, btn_width_1,btn_height_1, 'Jogar novamente ')
     sprites = pygame.sprite.Group()
     sprites.add(end)
 
@@ -25,11 +28,15 @@ class Stage(structures.BaseStage.BaseStage):
       self.window.fill((0, 0, 0))
       sprites.draw(self.window)
       button_start.draw(self.window)
+      button_start_1.draw(self.window)
       for event in pygame.event.get():
         if event.type == pygame.QUIT:
           done = True
           return
         if event.type == pygame.MOUSEBUTTONDOWN and button_start.isBeingHovered():
           done = True
+          return 'game'
+        if event.type == pygame.MOUSEBUTTONDOWN and button_start_1.isBeingHovered():
+          done = True 
           return 'game'
       pygame.display.update()
