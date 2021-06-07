@@ -26,7 +26,7 @@ class Stage(BaseStage.BaseStage):
     som_2 = Som.som_1()
     
     bg_img = pygame.transform.scale(pygame.image.load('./assets/fundo_atualizado(1).jpg').convert(), (WIDTH, HEIGHT))
-
+    bg_img2 = pygame.transform.scale(pygame.image.load('./assets/Background2.png').convert(), (WIDTH, HEIGHT))
     bg1 = 0
     bg2 = WIDTH
 
@@ -41,7 +41,10 @@ class Stage(BaseStage.BaseStage):
   
     vidas = 3
     score = 0
+    turno = 0
     self.speed = -5
+    
+   
     
     done = False
     frame_count = 0
@@ -97,11 +100,24 @@ class Stage(BaseStage.BaseStage):
       #SCORE
       score+=1
       Pontos = font.render('Score: {}'.format(score), True, (0, 0, 255))
+      
+      
+
+      
+      
     
       self.window.fill((0, 0, 0))
+      if turno<1000:
+        turno+=1
+        self.window.blit(bg_img, (bg1, 0))
+        self.window.blit(bg_img, (bg2, 0))
+      elif turno==1000:
+         turno=2000
+      elif turno<=2000:
+        turno-=1
+        self.window.blit(bg_img2, (bg1, 0))
+        self.window.blit(bg_img2, (bg2, 0))
 
-      self.window.blit(bg_img, (bg1, 0))
-      self.window.blit(bg_img, (bg2, 0))
 
       self.window.blit(Vidas, (50, 100))
       self.window.blit(Pontos, (50, 130))
