@@ -108,15 +108,17 @@ class Stage(BaseStage.BaseStage):
     
       self.window.fill((0, 0, 0))
       if turno<1000:
-        turno+=1
         self.window.blit(bg_img, (bg1, 0))
         self.window.blit(bg_img, (bg2, 0))
+        turno+=1
       elif turno==1000:
          turno=2000
-      elif turno<=2000:
-        turno-=1
+      elif turno>1000 and turno<=2000:
         self.window.blit(bg_img2, (bg1, 0))
         self.window.blit(bg_img2, (bg2, 0))
+        turno-=1
+        if turno==1000:
+          turno=0
 
 
       self.window.blit(Vidas, (50, 100))
