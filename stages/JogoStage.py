@@ -56,17 +56,17 @@ class Stage(BaseStage.BaseStage):
           done = True
 
         if event.type == pygame.USEREVENT+2:
-          tipo = random.randrange(0, 3)
+          tipo = random.randrange(0, 10)
           
-          if tipo == 0:
+          if tipo in [0, 1, 2, 3]:
             novo_obstaculo = Prova.Prova()
             all_provas.add(novo_obstaculo)
 
-          if tipo == 1:
+          if tipo in [4, 5, 6, 7, 8]:
             novo_obstaculo = Cone.Cone()
             all_cones.add(novo_obstaculo)
 
-          if tipo == 2:
+          if tipo in [9]:
             novo_obstaculo = Boost.Boost()
             all_boosts.add(novo_obstaculo)
 
