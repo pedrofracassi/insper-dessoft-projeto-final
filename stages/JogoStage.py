@@ -135,5 +135,8 @@ class Stage(BaseStage.BaseStage):
 
       if vidas == 0:
         done = True
-        pygame.mixer.pause()
+        pygame.mixer.music.pause()
+        pygame.mixer.Channel(2).play(pygame.mixer.Sound("assets/Humberto.mp3"))
+
+
         return 'dead'
