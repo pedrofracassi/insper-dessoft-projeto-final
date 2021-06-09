@@ -30,6 +30,8 @@ class Stage(BaseStage.BaseStage):
 
     pygame.mixer.music.load("assets/som.mp3")
     pygame.mixer.music.play(-1)
+    
+
 
     all_sprites.add(player)
   

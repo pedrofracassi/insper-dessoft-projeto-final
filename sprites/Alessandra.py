@@ -11,6 +11,9 @@ YELLOW = (255, 255, 0)
 GRAVIDADE = 0.7
 
 
+
+
+
 class Alessandra(pygame.sprite.Sprite):
   def __init__(self):
     super(Alessandra, self).__init__()
@@ -32,6 +35,7 @@ class Alessandra(pygame.sprite.Sprite):
     self.chao = HEIGHT /(1.09)
     self.speedy = 0
     self.uphold = False
+    
 
   def update (self, speed):
     if  self.contador1 in self.tempo and not self.pulando :
@@ -51,6 +55,8 @@ class Alessandra(pygame.sprite.Sprite):
       self.uphold = True
       self.pulando = True
       self.speedy = -15
+      pygame.mixer.Channel(1).play(pygame.mixer.Sound("assets/pulo.wav"))
+      
 
     if not keystate[pygame.K_SPACE]:
       self.uphold = False
@@ -60,8 +66,11 @@ class Alessandra(pygame.sprite.Sprite):
     if self.pulando:
       self.speedy += GRAVIDADE
       self.image = self.images[2]
+      
+
 
     if self.rect.bottom > self.chao:
       self.rect.bottom = self.chao
       self.speedy = 0
       self.pulando = False
+      
