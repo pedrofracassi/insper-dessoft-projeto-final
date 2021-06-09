@@ -106,6 +106,7 @@ class Stage(BaseStage.BaseStage):
       if colisoes_cafe:
         vidas += 1
         pygame.mixer.Channel(3).play(pygame.mixer.Sound("assets/cafe.wav"))
+        pygame.mixer.music.set_volume(0.7)
 
       # VIDAS
       font = pygame.font.SysFont(None, 30)
