@@ -3,9 +3,7 @@
 ## Autores
 
 - Camila Bernardi Moniz
-
 - Gabriela Albuquerque 
-
 - Pedro Fracassi
 
 ### Visão geral
