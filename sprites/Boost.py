@@ -24,5 +24,5 @@ class Boost(pygame.sprite.Sprite):
   def update (self, speed):
     self.rect.centerx += speed
     self.rect.bottom+=0
-    if self.rect.centerx<=-5:
-        self.rect.centerx = WIDTH*3
+    if self.rect.x <= -self.rect.width:
+      self.kill()

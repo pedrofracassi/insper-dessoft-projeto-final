@@ -1,11 +1,12 @@
+from pygame.constants import USEREVENT
 from constants import HEIGHT, WIDTH
 from sprites import Alessandra
 from sprites import Prova
 from sprites import Cone
 from sprites import Boost
-from sprites import Som
 from structures import BaseStage
 import pygame
+import random
 
 class Stage(BaseStage.BaseStage):
   def __init__(self, window) -> None:
@@ -16,28 +17,21 @@ class Stage(BaseStage.BaseStage):
   def run (self):
     all_sprites = pygame.sprite.Group()
     all_provas = pygame.sprite.Group()
-    all_obs = pygame.sprite.Group()
+    all_cones = pygame.sprite.Group()
     all_boosts = pygame.sprite.Group()
-    all_Som_1 = pygame.sprite.Group()
+
+    # Inicializar sprites
     player = Alessandra.Alessandra()
-    prova = Prova.Prova()
-    obstaculo = Cone.Cone()
-    boost = Boost.Boost()
-    som_2 = Som.som_1()
     
-    bg_img = pygame.transform.scale(pygame.image.load('./assets/fundo_atualizado(1).jpg').convert(), (WIDTH, HEIGHT))
-    bg_img2 = pygame.transform.scale(pygame.image.load('./assets/Background2.png').convert(), (WIDTH, HEIGHT))
+    bg_img = pygame.transform.scale(pygame.image.load('./assets/background_night.jpg').convert(), (WIDTH, HEIGHT))
+    bg_img2 = pygame.transform.scale(pygame.image.load('./assets/background_day.jpg').convert(), (WIDTH, HEIGHT))
     bg1 = 0
     bg2 = WIDTH
 
-    all_sprites.add(prova)
+    pygame.mixer.music.load("assets/som.mp3")
+    pygame.mixer.music.play(-1)
+
     all_sprites.add(player)
-    all_sprites.add(obstaculo)
-    all_sprites.add(boost)
-    all_obs.add(obstaculo)
-    all_provas.add(prova)
-    all_boosts.add(boost)
-    all_Som_1.add(som_2)
   
     vidas = 3
     score = 0
@@ -47,6 +41,11 @@ class Stage(BaseStage.BaseStage):
     done = False
     frame_count = 0
 
+    min_timer = 1000
+    max_timer = 1500
+
+    pygame.time.set_timer(USEREVENT+2, random.randrange(min_timer, max_timer))
+
     while not done:
       pygame.time.Clock().tick(60)
 
@@ -54,10 +53,32 @@ class Stage(BaseStage.BaseStage):
         if event.type == pygame.QUIT:
           done = True
 
+        if event.type == pygame.USEREVENT+2:
+          tipo = random.randrange(0, 3)
+          
+          if tipo == 0:
+            novo_obstaculo = Prova.Prova()
+            all_provas.add(novo_obstaculo)
+
+          if tipo == 1:
+            novo_obstaculo = Cone.Cone()
+            all_cones.add(novo_obstaculo)
+
+          if tipo == 2:
+            novo_obstaculo = Boost.Boost()
+            all_boosts.add(novo_obstaculo)
+
+          all_sprites.add(novo_obstaculo)
+
       frame_count += 1
 
       if frame_count == 240:
         frame_count = 0
+        
+        if min_timer - 300 > 0 and max_timer - 300 > 0:
+          min_timer -= 300
+          max_timer -= 300
+
         self.speed += -1
 
       bg1 += self.speed
@@ -72,7 +93,7 @@ class Stage(BaseStage.BaseStage):
       all_sprites.update(self.speed)
 
       colisoes_prova = pygame.sprite.spritecollide(player, all_provas, True)
-      colisoes_cone = pygame.sprite.spritecollide(player, all_obs, True)
+      colisoes_cone = pygame.sprite.spritecollide(player, all_cones, True)
       colisoes_cafe = pygame.sprite.spritecollide(player, all_boosts, True)
       
       # Diminui um de vida se colidir com um obstáculo
@@ -91,7 +112,6 @@ class Stage(BaseStage.BaseStage):
       score+=1
       Pontos = font.render('Score: {}'.format(score), True, (0, 0, 255))
 
-      self.window.fill((0, 0, 0))
       if turno<1000:
         self.window.blit(bg_img, (bg1, 0))
         self.window.blit(bg_img, (bg2, 0))
@@ -113,4 +133,5 @@ class Stage(BaseStage.BaseStage):
 
       if vidas == 0:
         done = True
+        pygame.mixer.pause()
         return 'dead'
