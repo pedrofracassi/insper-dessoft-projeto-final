@@ -24,8 +24,15 @@ def get_stage(name):
       return stage
 
 done = False
+skip_menu = False
 while not done:
-  res = get_stage('menu').run()
+
+  if skip_menu:
+    skip_menu = False
+    res = 'game'
+  else:
+    res = get_stage('menu').run()
+
   if res == 'game':
     res = get_stage('jogo').run()
     if res != 'dead':
@@ -33,7 +40,7 @@ while not done:
   if res == 'dead':
     res = get_stage('end').run()
     if res == "restart":
-      res = get_stage('jogo').run()
+      skip_menu = True
   else:
     done = True
     
