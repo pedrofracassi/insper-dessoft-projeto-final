@@ -1,30 +1,30 @@
 # insper-dessoft-projeto-final
-#Pygame
+# Pygame
 
-####Nome do Jogo: Café com a Alessandra 
+#### Nome do Jogo: Café com a Alessandra 
 ---
 
-##Autores
+## Autores
 -Camila Bernardi Moniz
 -Gabriela Albuquerque 
 -Pedro Fracassi
 ___
 
-###Visão geral do jogo:
+### Visão geral do jogo:
 O jogo consiste na personagem Alessandra correndo por São Paulo,enquanto desvia de obstáculos como provas com nota baixa e cones.
 ___
-##Regras do Jogo:
+## Regras do Jogo:
 
-####Obstáculos:
+#### Obstáculos:
 
 -Provas nota F e cones representam os obstáculos do jogo.Quando seu player encosta em qualquer um destes,você perderá  uma vida.
 
-####Boost:
+#### Boost:
 
 -Ao longo do jogo xícaras de café apareceram aleatoriamente, caso consiga pega-lá você ganhará uma vida.
 ___
 
-###Como jogar:
+### Como jogar:
 
 -Clique no botão “Jogar”
 -Aperte a barra de espaço para fazer seu player pular 
@@ -33,16 +33,16 @@ ___
 -Em caso de perda de todas as vidas,o jogo acaba!
 ___
 
-###Objetivo do jogo:
+### Objetivo do jogo:
 -Permaneça o maior tempo possível vivo e bata records de score.
 
 O jogo deve ser executado no arquivo “main.py”
 ___
-##Preview:
+## Preview:
 
 
 ___
-##Rascunho Jogo 
+## Rascunho Jogo 
 
 ```py
 pygame.init()
