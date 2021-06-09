@@ -105,6 +105,7 @@ class Stage(BaseStage.BaseStage):
       # Aumenta um de vida se colidir com um café
       if colisoes_cafe:
         vidas += 1
+        pygame.mixer.Channel(3).play(pygame.mixer.Sound("assets/cafe.wav"))
 
       # VIDAS
       font = pygame.font.SysFont(None, 30)
