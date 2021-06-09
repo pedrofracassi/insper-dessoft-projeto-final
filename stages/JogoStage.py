@@ -42,11 +42,12 @@ class Stage(BaseStage.BaseStage):
     vidas = 3
     score = 0
     self.speed = -5
-    
     done = False
     frame_count = 0
+
     while not done:
       pygame.time.Clock().tick(60)
+
       for event in pygame.event.get():
         if event.type == pygame.QUIT:
           done = True
@@ -68,37 +69,25 @@ class Stage(BaseStage.BaseStage):
 
       all_sprites.update(self.speed)
 
-      hits = pygame.sprite.spritecollide(player, all_provas, True)
-      hits2 = pygame.sprite.spritecollide(player, all_obs, True)
-      hits3 = pygame.sprite.spritecollide(player, all_boosts, True)
-      #Atualiza vidas
-      if hits or hits2:
-        pass # vidas-=1
-      if hits3:
-        vidas+=1
+      colisoes_prova = pygame.sprite.spritecollide(player, all_provas, True)
+      colisoes_cone = pygame.sprite.spritecollide(player, all_obs, True)
+      colisoes_cafe = pygame.sprite.spritecollide(player, all_boosts, True)
+      
+      # Diminui um de vida se colidir com um obstáculo
+      if colisoes_prova or colisoes_cone:
+        vidas -= 1
 
-      #Caso haja uma colisão o obstaculo é reposto
-      for prova in hits:
-        prova_ = Prova.Prova()
-        all_sprites.add(prova_)
-        all_provas.add(prova_)
-      for obstaculo in hits2:
-        obstaculo_ = Cone.Cone()
-        all_sprites.add(obstaculo_)
-        all_provas.add(obstaculo_)
-      for boost in hits2:
-        boost_ = Boost.Boost()
-        all_sprites.add(boost_)
-        all_provas.add(boost_)
+      # Aumenta um de vida se colidir com um café
+      if colisoes_cafe:
+        vidas += 1
 
-      #VIDAS
+      # VIDAS
       font = pygame.font.SysFont(None, 30)
       Vidas = font.render('Vidas: {}'.format(vidas), True, (0, 255, 0))
-      #SCORE
+
+      # SCORE
       score+=1
       Pontos = font.render('Score: {}'.format(score), True, (0, 0, 255))
-    
-      self.window.fill((0, 0, 0))
 
       self.window.blit(bg_img, (bg1, 0))
       self.window.blit(bg_img, (bg2, 0))
