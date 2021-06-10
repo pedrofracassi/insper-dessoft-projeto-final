@@ -34,7 +34,9 @@ Permaneça o maior tempo possível vivo e bata records de score.
 O jogo deve ser executado no arquivo “main.py”
 ## Preview
 
-[VÍDEO AQUI]
+https://youtu.be/V6-GlyJEoaM
+
+[![Imagem](https://i.imgur.com/Hd2yByr.png)](https://youtu.be/V6-GlyJEoaM)
 
 ## Rascunho Jogo (antigo!)
 
